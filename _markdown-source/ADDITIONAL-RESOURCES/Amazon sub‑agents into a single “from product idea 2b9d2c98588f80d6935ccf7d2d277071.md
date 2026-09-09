@@ -48,7 +48,7 @@ In plain English (no code required), you’d give it instructions along these li
         - Generate FAQs for the listing.
         - Draft canned reply templates for the most likely issues uncovered in previous steps.
 - **Interaction rules**
-    - Always show which step you are in (for example, “Step 3/8 – Listing creation with Content Creator agent”).
+    - Always show which step you are in (for example, “Step 3/8 - Listing creation with Content Creator agent”).
     - Before moving to the next step, briefly summarise outputs and ask the user if they want to tweak or proceed.
     - Reuse previous information instead of asking the user to repeat it.
 

@@ -1,5 +1,11 @@
 # Copilot Self-Drive File
 
+**Follow the instructions in this file, one step at a time.**
+
+**Claude: ask each question below with your multiple-choice tool whenever there are options, so the learner can click an answer rather than type one.**
+
+---
+
 ## How to Use This File
 
 1. **Right-click on this file** in your VS Code explorer

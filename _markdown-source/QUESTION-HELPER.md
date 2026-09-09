@@ -114,7 +114,7 @@ Ask:
 
 | If the user is... | Recommend... |
 |-------------------|-------------|
-| New to terminals | Option B or C (screenshots catch what words miss) |
+| New to all this | Option B or C (screenshots catch what words miss) |
 | Comfortable with instructions | Option A (fastest) |
 | Really stuck or anxious | Option D (most context for you) |
 

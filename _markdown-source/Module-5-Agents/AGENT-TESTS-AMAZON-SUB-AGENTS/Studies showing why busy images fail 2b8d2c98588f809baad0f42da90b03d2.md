@@ -66,7 +66,7 @@ These are the ones worth actually citing by name in decks or SOPs; everything el
 **Direct CTR/Conversion Metrics from Amazon Research:**
 
 - **"Bringing Multimodality to Amazon Visual Search System"** - Amazon's 3-tower model showed **4.95% relative improvement on image matching click-through rate**, with the 4-tower model adding another **1.13% improvement**
-- **Amazon AI Creative Studio data** (from Amazon's own advertising platform) shows **40% average CTR increase when products shown in lifestyle contexts vs white backgrounds**. However, this actually validates your point inversely—it demonstrates Amazon is actively measuring background impact on CTR
+- **Amazon AI Creative Studio data** (from Amazon's own advertising platform) shows **40% average CTR increase when products shown in lifestyle contexts vs white backgrounds**. However, this actually validates your point inversely: it demonstrates Amazon is actively measuring background impact on CTR
 - **Case study from Amazon seller optimization** showed CTR increased **45% within one month** and conversion improved from **8% to 15%** after adding high-quality images
 
 ## 3. Methodologies Used in Amazon Visual Search and Product Imaging Studies

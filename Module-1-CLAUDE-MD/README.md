@@ -86,14 +86,14 @@ This file tells Claude how to work on this project.
 
 > **Where does CLAUDE.md go?**
 >
-> Your CLAUDE.md file goes **inside your project folder** -- the same folder you open in your terminal. For example: `~/my-amazon-project/CLAUDE.md`
+> Your CLAUDE.md file goes **inside your project folder** -- the folder you pick in the Code tab. For example: `~/my-amazon-project/CLAUDE.md`
 >
 > **NOT** in `~/.claude/` -- that's a different system folder. If you put it there, Claude won't find it when you're working on your project.
 >
 > Quick check: your CLAUDE.md should be in the **same folder** as your other project files.
 
 1. **You read** this README (done)
-2. **You give Claude the self-drive file** -- open `CLAUDE-MD-SELF-DRIVE.md`, copy the contents, paste into Claude Code
+2. **You give Claude the file** -- drag `MODULE-1-GIVE-TO-CLAUDE.md` into the Code tab chat, with the line printed at the top of it
 3. **Claude asks you 3 questions** -- what's your project, what do you need help with, how should Claude communicate
 4. **Claude creates your CLAUDE.md** -- tailored to your answers
 

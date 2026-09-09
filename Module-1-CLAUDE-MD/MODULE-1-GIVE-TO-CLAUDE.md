@@ -1,8 +1,14 @@
 # CLAUDE.md Self-Drive File
 
+**Follow the instructions in this file, one step at a time.**
+
+**Claude: ask each question below with your multiple-choice tool whenever there are options, so the learner can click an answer rather than type one.**
+
+---
+
 **Before starting:** Ask the user:
 
-> "Quick check — do you have Plan Mode on? Press **Shift+Tab** once. The indicator at the bottom of the screen will change. Keep it on for this whole module — it means I'll describe what I'm about to do before doing it, so you can catch anything before it happens."
+> "Quick check: shall we work in plan mode? Just say 'switch to plan mode' and I will describe what I am about to do before I do it, so you can catch anything before it happens. Keep it on for this whole module."
 
 Wait for them to confirm before continuing.
 

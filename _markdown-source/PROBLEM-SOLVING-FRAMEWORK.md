@@ -10,7 +10,7 @@ Most people think they need to learn "prompt engineering" to use AI. They don't.
 
 The problem isn't *how* to ask -- it's what to do when the first answer doesn't work. This framework gives you a repeatable system for unsticking yourself, without needing anyone else's help.
 
-**Before:** You get stuck, close the terminal, wait for someone to help.
+**Before:** You get stuck, close the window, wait for someone to help.
 **After:** You follow a 3-level system that solves 90% of problems yourself.
 
 ---

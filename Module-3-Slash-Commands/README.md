@@ -96,7 +96,7 @@ your-project/
 Plan Mode is a workflow toggle that says: "Think before you build."
 
 **How it works:**
-1. Press **Shift+Tab** to enter Plan Mode
+1. Ask Claude to switch to plan mode
 2. Claude analyses, outlines, and proposes a plan
 3. You review and approve (or adjust)
 4. Claude executes the approved plan

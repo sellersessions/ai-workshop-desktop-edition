@@ -27,12 +27,11 @@ These agents are ready to use within this workshop project folder.
 
 ### Option 2: Install Globally
 
-To use across all Claude Code projects:
+To use these in every project, ask Claude:
 
-```bash
-mkdir -p ~/.claude/agents
-cp *.md ~/.claude/agents/
-```
+> Copy the agent files in this folder into my global agents folder.
+
+Claude creates `~/.claude/agents` if it needs to, and copies them across.
 
 ---
 

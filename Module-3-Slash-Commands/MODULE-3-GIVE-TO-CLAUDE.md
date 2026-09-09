@@ -1,8 +1,14 @@
 # Slash Commands Self-Drive File
 
+**Follow the instructions in this file, one step at a time.**
+
+**Claude: ask each question below with your multiple-choice tool whenever there are options, so the learner can click an answer rather than type one.**
+
+---
+
 **Before starting:** Ask the user:
 
-> "Quick check — do you have Plan Mode on? Press **Shift+Tab** once. The indicator at the bottom of the screen will change. Keep it on for this whole module — it means I'll describe what I'm about to do before doing it, so you can catch anything before it happens."
+> "Quick check: shall we work in plan mode? Just say 'switch to plan mode' and I will describe what I am about to do before I do it, so you can catch anything before it happens. Keep it on for this whole module."
 
 Wait for them to confirm before continuing.
 
@@ -63,14 +69,14 @@ Ask these three questions one at a time. Wait for their answer before moving on.
 
 ### Create the Folder Structure
 
-Run these in your terminal first. Claude Code cannot create directories automatically.
+I will create the folders we need. You do not have to make anything yourself.
 
-```bash
-mkdir -p .claude/commands
-mkdir -p .claude/skills/find
-mkdir -p .claude/skills/web-researcher
-mkdir -p .claude/skills/content-research-writer
-```
+Create these four folders inside the learner's project folder, then tell them they exist:
+
+- `.claude/commands`
+- `.claude/skills/find`
+- `.claude/skills/web-researcher`
+- `.claude/skills/content-research-writer`
 
 ```
 [their-project-folder]/
@@ -181,12 +187,12 @@ Keep it under 200 words.
 
 ---
 
-> **STOP — Restart Claude Code before continuing.**
+> **STOP: start a new session before continuing.**
 >
-> Slash commands created mid-session are invisible until Claude Code restarts.
-> 1. Quit Claude Code completely (Cmd+Q on Mac)
-> 2. Reopen Claude Code
-> 3. Type `/` — your new command should appear in the list
+> A slash command you have just created is picked up by a new session, not by the one that made it.
+> 1. Start a new session in the Code tab
+> 2. Check the folder name beside the session title is still your project folder
+> 3. Type `/` and your new command should appear in the list
 >
 > If it appears: continue to Part 2.
 > If it does not appear: check the file is in `.claude/commands/` and ends in `.md`.
@@ -221,7 +227,7 @@ A writing partner skill. Give it a topic, some research, or a brief and it helps
 
 After setting up commands and skills, briefly explain Plan Mode:
 
-> "One more thing: Plan Mode. Press **Shift+Tab** to toggle it on.
+> "One more thing: plan mode. Ask me to switch to plan mode any time.
 >
 > When Plan Mode is on, I'll think before I build -- I'll outline what I'm going to do and wait for your approval before making changes.
 >
@@ -249,7 +255,7 @@ After installing skills, run this quick check:
 > - Type `/find supplier spreadsheet` to search for files
 > - Type `/web-researcher` to research any topic or URL
 > - Say 'write an article from that research' to chain skills together
-> - Press **Shift+Tab** to toggle Plan Mode before big tasks
+> - Ask me to switch to plan mode before big tasks
 >
 > Want to try one now? Ask me to research something in your niche."
 

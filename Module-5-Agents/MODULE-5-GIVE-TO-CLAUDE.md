@@ -1,8 +1,14 @@
 # Agents Self-Drive File
 
+**Follow the instructions in this file, one step at a time.**
+
+**Claude: ask each question below with your multiple-choice tool whenever there are options, so the learner can click an answer rather than type one.**
+
+---
+
 **Before starting:** Ask the user:
 
-> "Quick check — do you have Plan Mode on? Press **Shift+Tab** once. The indicator at the bottom of the screen will change. Keep it on for this whole module — it means I'll describe what I'm about to do before doing it, so you can catch anything before it happens."
+> "Quick check: shall we work in plan mode? Just say 'switch to plan mode' and I will describe what I am about to do before I do it, so you can catch anything before it happens. Keep it on for this whole module."
 
 Wait for them to confirm before continuing.
 
@@ -16,26 +22,22 @@ Wait for them to confirm before continuing.
 
 Complete both steps before installing anything.
 
-### Step 1 — Module dependency check
+### Step 1: Module dependency check
 
 Ask the user:
 
-> "Have you completed Modules 1–4? Agents work best when your CLAUDE.md and Master Log are already set up — they use both to follow your preferences and log sessions.
+> "Have you completed Modules 1 to 4? Agents work best when your CLAUDE.md and Master Log are already set up, they use both to follow your preferences and log sessions.
 >
 > If you haven't done Module 4 (MCPs): the Trend Researcher and Reddit Scout agents need web browsing to work properly. You can still install everything now, but those two agents will be limited until MCPs are set up."
 
 ---
 
-### Step 2 — Course materials check
+### Step 2, Course materials check
 
-Run this to locate the agent files:
+Find the `amazon-seller-agents` folder yourself, inside the course folder the learner downloaded. Tell them where it is. Do not ask them to search for it.
 
-```bash
-find ~ -name "amazon-seller-agents" -type d 2>/dev/null | head -1
-```
-
-- If it returns a path (e.g. `/Users/yourname/.../Module-5-Agents/amazon-seller-agents`): good. **Copy that path** — you'll use it in Step 2 of installation.
-- If it returns nothing: the course materials aren't downloaded. Download or clone the AI Workshop repo first, then return here.
+- If you find it: tell the learner where it is and carry on.
+- If you cannot find it: the course files are not on their machine yet. Ask them to download the course folder, then come back to you.
 
 ---
 
@@ -49,42 +51,34 @@ find ~ -name "amazon-seller-agents" -type d 2>/dev/null | head -1
 
 ### Step 1: Create the Agents Directory
 
-```bash
-mkdir -p ~/.claude/agents
-```
+Create the folder `~/.claude/agents` if it does not exist yet.
 
-**Note:** `~/.claude/agents/` is your global agents folder — these agents will be available in every project you open in Claude Code, not just this one. That's intentional: your Amazon specialists travel with you.
+**Note:** `~/.claude/agents/` is your global agents folder, these agents will be available in every project you open in Claude Code, not just this one. That's intentional: your Amazon specialists travel with you.
 
 ### Step 2: Copy the 8 Amazon Agents
 
-Use the path returned by the Pre-Flight find command above. Replace `[path-from-find]` with that path:
-
-```bash
-cp [path-from-find]/*-OPTIMIZED.md ~/.claude/agents/
-```
+Copy every file ending in `-OPTIMIZED.md` from that folder into `~/.claude/agents/`. Do the copying yourself, then tell the learner what you moved and where it went.
 
 **Example** (your path will differ):
 ```bash
 cp /Users/yourname/Documents/AI-Workshop/Module-5-Agents/amazon-seller-agents/*-OPTIMIZED.md ~/.claude/agents/
 ```
 
-Install the OPTIMIZED versions only. These are faster and better suited for workshop use. The full-detail standard versions are in the same folder if you want them later — copy them individually when needed.
+Install the OPTIMIZED versions only. These are faster and better suited for workshop use. The full-detail standard versions are in the same folder if you want them later, copy them individually when needed.
 
 ### Step 3: Verify Installation
 
-```bash
-ls ~/.claude/agents/
-```
+List what is now in `~/.claude/agents/` and show the learner.
 
 You should see exactly 8 agent files (all ending in `-OPTIMIZED.md`).
 
 ---
 
-> **STOP — Restart Claude Code before continuing.**
+> **STOP: start a new session before continuing.**
 >
-> Agents load when Claude Code starts up, not mid-conversation.
-> 1. Quit Claude Code completely (Cmd+Q on Mac)
-> 2. Reopen Claude Code in the same project folder
+> A new session picks these up. Testing on 9 September 2026 showed agents appearing straight away, so if they are already listed you can carry on.
+> 1. Start a new session in the Code tab
+> 2. Check the folder name beside the session title is still your project folder
 > 3. Ask: "Which agents do you have available?"
 >    Claude should list the 8 Amazon agents by name.
 >

@@ -65,7 +65,7 @@ Each self-drive file has a unique opening phrase. Search the transcript for thes
 
 | Module | Name | Detection signature |
 |--------|------|---------------------|
-| 000 | Installing Claude Code | `install Claude Code CLI in my Mac Terminal` |
+| 000 | Install Claude Desktop | `open the Code tab`, `Change directory`, `pick my Claude-projects folder` |
 | 00 | VS Code + Copilot Setup | `I'm setting up VS Code with GitHub Copilot for the first time` |
 | 1 | CLAUDE.md | `You are helping a user create their first CLAUDE.md file` |
 | 2 | Master Log | `help them set up their Master Session Log` |
@@ -83,7 +83,7 @@ What proves a module was finished successfully:
 
 | Module | Completion evidence |
 |--------|--------------------|
-| 000 | `claude --version` returns a version number in the transcript |
+| 000 | A session in the learner's own project folder, with a `hello.md` created in it |
 | 00 | 6 extensions confirmed installed (check for install confirmations) |
 | 1 | A `CLAUDE.md` file was created (look for file write operations) |
 | 2 | A master session log file was created (any `.md` log file written) |
