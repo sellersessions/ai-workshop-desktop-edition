@@ -39,7 +39,9 @@ build() {
          DOC_KICKER="$kicker" DOC_META="$meta"
   python3 "$SCRIPT_DIR/render.py" > "$html"
 
-  "$CHROME" --headless --disable-gpu --no-sandbox \
+  # virtual-time-budget gives mermaid time to draw before the page is printed.
+  "$CHROME" --headless --disable-gpu --no-sandbox --allow-file-access-from-files \
+    --virtual-time-budget=20000 \
     --no-pdf-header-footer --print-to-pdf="$out" "file://$html" 2>/dev/null
 
   echo "built: ${out#$EDITION_DIR/}"

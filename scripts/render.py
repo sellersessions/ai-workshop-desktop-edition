@@ -31,8 +31,27 @@ now = datetime.datetime.now(zoneinfo.ZoneInfo("Europe/London"))
 gen_date = now.strftime("%-d %B %Y")
 
 
+MERMAID_FENCE = re.compile(r"```mermaid\n(.*?)```", re.S)
+MERMAID_INIT = re.compile(r"^%%\{init:.*?\}%%\s*$", re.M)
+
+
+def extract_mermaid(markdown):
+    """Pull mermaid fences out before pandoc runs, so they survive as diagrams
+    rather than arriving in the PDF as a wall of source. Returns the markdown
+    with placeholders, plus the diagram sources in order."""
+    diagrams = []
+
+    def take(match):
+        source = MERMAID_INIT.sub("", match.group(1)).strip()
+        diagrams.append(source)
+        return "\n\nMERMAIDSLOT%d\n\n" % (len(diagrams) - 1)
+
+    return MERMAID_FENCE.sub(take, markdown), diagrams
+
+
 def md_to_html(markdown):
     """Convert a markdown fragment with pandoc, then apply the deck's classes."""
+    markdown, diagrams = extract_mermaid(markdown)
     out = subprocess.run(
         ["pandoc", "-f", "gfm", "-t", "html5"],
         input=markdown, capture_output=True, text=True, check=True).stdout
@@ -40,6 +59,10 @@ def md_to_html(markdown):
     # Pandoc emits GitHub task boxes as disabled checkboxes. A printed page
     # cannot be ticked, so the box becomes a plain bullet.
     out = re.sub(r'<input[^>]*type="checkbox"[^>]*>\s*', "", out)
+    for index, source in enumerate(diagrams):
+        out = out.replace(
+            "<p>MERMAIDSLOT%d</p>" % index,
+            '<pre class="mermaid">%s</pre>' % html.escape(source))
     return out
 
 
@@ -111,6 +134,8 @@ for key, value in {
     "DESCRIPTION": SUBTITLE,
     "TAGS": "AI Workshop, Claude Desktop, Seller Sessions",
     "GEN_DATE_ISO": now.strftime("%Y-%m-%d"),
+    "MERMAID_JS": "file://" + os.path.join(os.path.dirname(os.path.abspath(SHELL)),
+                                           "vendor", "mermaid.min.js"),
 }.items():
     page = page.replace("<<%s>>" % key, html.escape(value))
 
