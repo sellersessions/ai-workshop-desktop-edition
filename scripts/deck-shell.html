@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><<DOC_TITLE>></title>
+<meta name="author" content="<<AUTHOR>>">
+<meta name="description" content="<<DESCRIPTION>>">
+<meta name="keywords" content="<<TAGS>>">
+<meta name="dcterms.created" content="<<GEN_DATE_ISO>>">
+<style>
+/* ============================================================
+   Design tokens and slide furniture: copied verbatim from the
+   signed-off deck at terry-legal-case settlement-posture.html so
+   every Danny PDF shares one system. Do not restyle here.
+   The only additions are the prose rules at the end, which set
+   paragraphs, lists and code at the same scale the deck uses.
+   ============================================================ */
+:root{
+  color-scheme: light dark;
+  --bg-1:#ffffff; --bg-2:#f6f5f0; --bg-3:#edece5;
+  --tx-1:#1d1c1a; --tx-2:#6c6b64; --tx-3:#9b9a91;
+  --bd:rgba(0,0,0,0.12); --bd-2:rgba(0,0,0,0.22);
+  --ok:#1f7a4d;   --ok-bg:#e4f3ea;
+  --warn:#9a6212; --warn-bg:#f7eed9;
+  --bad:#b23b3b;  --bad-bg:#f8e6e6;
+  --info:#2f6dbf; --info-bg:#e6effb;
+  --r-md:8px; --r-lg:12px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg-3);color:var(--tx-1);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;line-height:1.45}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px}
+.slide{width:210mm;max-width:100%;min-height:297mm;background:var(--bg-1);
+  border:0.5px solid var(--bd);border-radius:var(--r-lg);padding:18mm 18mm;
+  position:relative;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.slide-title{font-size:20pt;font-weight:500;color:var(--tx-1);margin-bottom:7mm;line-height:1.15;letter-spacing:-0.01em}
+.slide-kicker{font-size:9pt;letter-spacing:2px;color:var(--tx-3);text-transform:uppercase;font-weight:600;margin-bottom:3mm}
+.slide-footer{position:absolute;left:18mm;right:18mm;bottom:8mm;display:flex;
+  justify-content:space-between;align-items:center;font-size:8.5pt;color:var(--tx-3);
+  padding-top:4mm;border-top:0.5px solid var(--bd)}
+.slide-footer .doc{flex:1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:4mm}
+.slide-footer .date{flex:1;text-align:center}
+.slide-footer .num{flex:1;text-align:right;font-variant-numeric:tabular-nums}
+.slide.cover{background:linear-gradient(180deg,var(--bg-1) 0%,var(--bg-2) 100%);
+  justify-content:center;align-items:flex-start;padding:24mm}
+.cover-eyebrow{font-size:10pt;letter-spacing:2px;color:var(--tx-3);text-transform:uppercase;font-weight:600;margin-bottom:8mm}
+.cover-title{font-size:34pt;font-weight:500;line-height:1.05;color:var(--tx-1);margin-bottom:4mm;letter-spacing:-0.02em}
+.cover-subtitle{font-size:14pt;color:var(--tx-2);font-weight:400;line-height:1.35;margin-bottom:14mm}
+.cover-meta{display:grid;grid-template-columns:1fr;gap:6mm;margin-top:auto;padding-top:10mm;width:100%}
+.cover-meta > div{display:flex;justify-content:space-between;align-items:baseline;border-bottom:0.5px solid var(--bd);padding-bottom:4mm}
+.cover-meta .lbl{font-size:9pt;letter-spacing:1.5px;color:var(--tx-3);text-transform:uppercase;font-weight:600}
+.cover-meta .val{font-size:12pt;color:var(--tx-1);font-weight:500}
+.lead{font-size:12.5pt;line-height:1.55;color:var(--tx-1);margin-bottom:6mm}
+.lead b{font-weight:600}
+.note{background:var(--bg-2);border-radius:var(--r-md);padding:5mm 7mm;font-size:10.5pt;line-height:1.5;color:var(--tx-2)}
+table.grid{width:100%;border-collapse:collapse;font-size:10pt;line-height:1.4}
+table.grid th{text-align:left;font-size:8.5pt;letter-spacing:1px;text-transform:uppercase;
+  color:var(--tx-3);font-weight:600;padding:2.5mm 3mm;border-bottom:1px solid var(--bd-2)}
+table.grid td{padding:3mm;border-bottom:0.5px solid var(--bd);vertical-align:top;color:var(--tx-1)}
+table.grid td.k{font-weight:600;width:24%}
+.fig{display:flex;flex-direction:column;align-items:center;margin:5mm 0}
+.fig svg{max-width:100%}
+.fig .cap{font-size:9pt;color:var(--tx-3);margin-top:2.5mm;text-align:center}
+.watch{background:var(--warn-bg);border:0.5px solid var(--warn);border-radius:var(--r-md);
+  padding:4mm 6mm;font-size:10.5pt;line-height:1.5;color:var(--tx-1);margin-bottom:5mm}
+.watch b{color:var(--warn);font-weight:600}
+.closer-card{background:var(--info-bg);border:0.5px solid var(--info);border-radius:var(--r-lg);
+  padding:10mm;display:flex;flex-direction:column;gap:4mm}
+.closer-card .ttl{color:var(--info);font-weight:500;font-size:15pt}
+.closer-card .body{font-size:11.5pt;line-height:1.55;color:var(--tx-1)}
+
+/* Prose inside a slide. Same scale as .lead, so converted markdown
+   sits in the system rather than beside it. */
+.slide p{font-size:11.5pt;line-height:1.55;color:var(--tx-1);margin-bottom:5mm}
+.slide h3{font-size:13pt;font-weight:600;color:var(--tx-1);margin:6mm 0 3mm}
+.slide ul,.slide ol{margin:0 0 5mm 6mm;font-size:11.5pt;line-height:1.55}
+.slide li{margin-bottom:2.5mm;padding-left:1mm}
+.slide li::marker{color:var(--tx-3)}
+.slide strong{font-weight:600}
+.slide code{font-family:var(--mono);font-size:10pt;background:var(--bg-2);
+  padding:0.5mm 1.5mm;border-radius:4px;color:var(--tx-1)}
+.slide pre{background:var(--bg-2);border-radius:var(--r-md);padding:5mm 6mm;
+  margin-bottom:5mm;overflow:hidden}
+.slide pre code{background:none;padding:0;font-size:9pt;line-height:1.5;white-space:pre-wrap}
+.slide blockquote{background:var(--bg-2);border-left:3px solid var(--info);
+  border-radius:var(--r-md);padding:4mm 6mm;margin-bottom:5mm}
+.slide blockquote p{font-size:11.5pt;color:var(--tx-1);margin:0}
+.slide a{color:var(--info);text-decoration:none}
+.slide hr{display:none}
+
+@media print{
+  :root{--bg-1:#ffffff;--bg-2:#f6f5f0;--bg-3:#edece5;--tx-1:#1d1c1a;--tx-2:#6c6b64;--tx-3:#9b9a91;
+    --bd:rgba(0,0,0,0.12);--bd-2:rgba(0,0,0,0.22);--ok:#1f7a4d;--ok-bg:#e4f3ea;--warn:#9a6212;
+    --warn-bg:#f7eed9;--bad:#b23b3b;--bad-bg:#f8e6e6;--info:#2f6dbf;--info-bg:#e6effb}
+  @page{size:A4 portrait;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  /* Pin the page box to A4. Without this a single wide table or long
+     unbroken string stretches the printed sheet and every slide prints
+     inset, with a white gutter down the right. */
+  html,body{margin:0 !important;padding:0 !important;background:#fff !important;
+    width:210mm !important;max-width:210mm !important;overflow-x:hidden}
+  .deck{display:block;padding:0;gap:0;width:210mm !important}
+  .slide{width:210mm !important;min-height:297mm !important;
+    max-width:210mm !important;border:none !important;border-radius:0 !important;
+    box-shadow:none !important;margin:0 !important;page-break-after:always;break-after:page;
+    overflow:hidden;overflow-wrap:anywhere}
+  .slide table.grid{table-layout:fixed}
+  .slide:last-child{page-break-after:auto;break-after:auto}
+  .no-print{display:none !important}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+<<SLIDES>>
+</div>
+</body>
+</html>
