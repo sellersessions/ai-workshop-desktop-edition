@@ -65,12 +65,12 @@ Each self-drive file has a unique opening phrase. Search the transcript for thes
 
 | Module | Name | Detection signature |
 |--------|------|---------------------|
-| 000 | Install Claude Desktop | `open the Code tab`, `Change directory`, `pick my Claude-projects folder` |
+| 000 | Install Claude Desktop | `You are helping someone who has just installed Claude Desktop` |
 | 00 | VS Code + Copilot Setup | `I'm setting up VS Code with GitHub Copilot for the first time` |
 | 1 | CLAUDE.md | `You are helping a user create their first CLAUDE.md file` |
 | 2 | Master Log | `help them set up their Master Session Log` |
 | 3 | Slash Commands + Skills | `help them set up slash commands AND install 3 starter skills` |
-| 4 | MCP Tools | `set up their MCP automation tools` |
+| 4 | Connectors | `You are teaching someone what a connector is` |
 | 5 | Amazon Seller Agents | `help them install 8 Amazon seller agents` |
 
 If a signature is not found in the transcript, mark that module as **Skipped** (not Blocked).
@@ -88,7 +88,7 @@ What proves a module was finished successfully:
 | 1 | A `CLAUDE.md` file was created (look for file write operations) |
 | 2 | A master session log file was created (any `.md` log file written) |
 | 3 | Files created in `.claude/commands/` AND `.claude/skills/` |
-| 4 | `.mcp.json` created AND at least 1 MCP tool tested successfully |
+| 4 | A connector was reached outside the project folder (a listing or read from Drive, Gmail or Notion) AND a summary file was written into the project folder |
 | 5 | Files copied to `~/.claude/agents/` AND at least 1 agent invoked |
 
 ---
