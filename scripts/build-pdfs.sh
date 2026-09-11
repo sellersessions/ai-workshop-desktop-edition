@@ -33,16 +33,13 @@ trap 'rm -rf "$WORK"' EXIT
 
 build() {
   local md="$1" out="$2" title="$3" subtitle="$4" kicker="$5" meta="$6"
-  local html="$WORK/$(basename "$out" .pdf).html"
 
+  # render.py prints the PDF itself. It measures the result and divides any
+  # section that ran past one sheet, so no slide spills and no footer strands
+  # on an overflow page.
   export DOC_SOURCE="$md" DOC_TITLE="$title" DOC_SUBTITLE="$subtitle" \
-         DOC_KICKER="$kicker" DOC_META="$meta"
-  python3 "$SCRIPT_DIR/render.py" > "$html"
-
-  # virtual-time-budget gives mermaid time to draw before the page is printed.
-  "$CHROME" --headless --disable-gpu --no-sandbox --allow-file-access-from-files \
-    --virtual-time-budget=20000 \
-    --no-pdf-header-footer --print-to-pdf="$out" "file://$html" 2>/dev/null
+         DOC_KICKER="$kicker" DOC_META="$meta" DOC_OUT="$out" CHROME="$CHROME"
+  python3 "$SCRIPT_DIR/render.py"
 
   echo "built: ${out#$EDITION_DIR/}"
 }
